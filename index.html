@@ -853,7 +853,7 @@
       <div class="embed-card">
         <div class="embed-head">
           <h3>zKillboard — GODMC Kills</h3>
-          <a class="btn small secondary" href="https://zkillboard.com/corporation/98823022/kills/" target="_blank" rel="noopener">Open on zKillboard</a>
+          <a class="btn small secondary" href="https://zkillboard.com/corporation/98823022/" target="_blank" rel="noopener">Open on zKillboard</a>
         </div>
         <div id="zkb-feed" class="zkb-feed"><div class="muted">Loading latest kills…</div></div>
       </div>
@@ -1006,8 +1006,8 @@
         const box = byId('zkb-feed');
         if (!box) return;
 
-        const allianceId = 99014700;
-        const zkbUrl = `https://zkillboard.com/api/kills/allianceID/${allianceId}/`;
+        const corporationId = 98823022;
+        const zkbUrl = `https://zkillboard.com/api/kills/corporationID/${corporationId}/`;
         const REFRESH_MS = 120000; // 2 minutes
         const MAX_KILLS = 10;
         const CONCURRENCY = 3;
