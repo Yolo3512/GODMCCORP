@@ -94,13 +94,11 @@
     }
 
     .nav{
+      position:sticky; top:0; z-index:20;
       position: sticky;
       top: 0;
       z-index: 20;
-
-      /* Full-width bar with no edge gaps */
-      width: 100%;
-      background: rgba(6,7,11,.92);
+      background: transparent;
       border-bottom: none;
       isolation: isolate; /* ensure pseudo-element layers correctly */
 
@@ -114,13 +112,16 @@
       content:"";
       position:absolute;
       inset:0;
-      /* solid bar background so it reaches edge-to-edge with no color showing through */
-      background: rgba(6,7,11,.92);
+      background: rgba(6,7,11,.68);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(255,255,255,.08);
       z-index:0;
 
-      /* NOTE: removed the "logo hole" mask to eliminate the red gap in the top-left */
+      /* punch a hole behind the logo so the bar doesn't darken it */
+      --holeX: calc(var(--wrapPad) + (var(--logoSize) / 2) + var(--logoOffsetX));
+      --holeR: calc((var(--logoSize) / 2) + 14px);
+      -webkit-mask: radial-gradient(circle at var(--holeX) calc(50% + var(--logoOffsetY)), transparent 0 var(--holeR), #000 calc(var(--holeR) + 1px));
+      mask: radial-gradient(circle at var(--holeX) calc(50% + var(--logoOffsetY)), transparent 0 var(--holeR), #000 calc(var(--holeR) + 1px));
     }
 .nav-inner{
       position:relative;
